@@ -17,9 +17,9 @@ class showFriends extends Component {
 
   handleDelete(event) {
     event.preventDefault();
-    this.props.deleteFriend(event.target.value);
+    this.props.deleteFriend(parseInt(event.target.value, 10));
     this.props.getFriends();
-    // console.log(event.target.value)
+    // console.log(parseInt(event.target.value, 10))
   }
 
 
