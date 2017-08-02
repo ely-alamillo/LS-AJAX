@@ -52,7 +52,9 @@ app.put('/update-friend', (req, res) => {
 });
 
 app.delete('/delete-friend', (req, res) => {
-	const index = req.body.index;
+	// console.log(req.query.index);
+	let index = req.query.index;
+	index = parseInt(index, 10)
 	friends.splice(index, 1);
 	res.send(friends);
 });
