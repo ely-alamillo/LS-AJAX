@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import FriendsInput from './friendsInput';
 import { connect } from 'react-redux';
 import { getFriends, deleteFriend } from '../actions';
+
+import './showFriends.css';
 // import axios from 'axios';
 
 class showFriends extends Component {
@@ -20,25 +22,41 @@ class showFriends extends Component {
     // console.log(event.target.value)
   }
 
+
   render() {
     return (
       <div>
         <FriendsInput getFriends={this.props.getFriends}/>
-        <ul>
-          {
-            this.props.friends.map((friend, index) => {
-              return (
-                <li key={index} className=''>
-                  <p>{`Friend ${index+1}`}</p>
-                  <p>{`Name: ${friend.name}`}</p>
-                  <p>{`Age: ${friend.age}`}</p>
-                  <p>{`Email: ${friend.email}`}</p>
-                  <button value={index} onClick={this.handleDelete}>Delete</button>
-                </li>
-              )
-            })
-          }
-        </ul>
+        <div className='container panel panel-primary '>
+          <h1 className='text-left header-font'> My Friends </h1>
+          <hr />
+          <table className='table table-condensed'>
+            <thead>
+              <tr>
+                <th className='text-center'>Friend #</th>
+                <th className='text-center'>Name</th>
+                <th className='text-center'>Age</th>
+                <th className='text-center email'>Email</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {
+              this.props.friends.map((friend, index) => {
+                return (
+                  <tr key={index}>
+                    <td className='text-center'>{index + 1}</td>
+                    <td className='text-center'>{friend.name}</td>
+                    <td className='text-center'>{friend.age}</td>
+                    <td className='text-center'>{friend.email} </td>
+                    <td><button className='btn btn-danger' value={index} onClick={this.handleDelete}>Delete</button></td>
+                  </tr>
+                )
+              })
+            }
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }

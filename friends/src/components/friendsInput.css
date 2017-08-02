@@ -1,0 +1,42 @@
+input {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  height: 40px;
+}
+input[type="text"] {
+    font-size:20px;
+}
+.btn {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.well {
+  /*margin-left: 25px;
+  margin-right: 25px;*/
+  border: medium solid #999999;
+}
+
+form {
+  padding-top: 1.5%;
+}
+
+@media screen and (max-width: 770px) {
+  input {
+    height: 50px;
+  }
+  .well {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .well {
+    width: inherit;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+  input[type="text"] {
+      font-size:18px;
+  }
+}

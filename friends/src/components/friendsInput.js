@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // import axios from 'axios';
 import { postFriend } from '../actions';
+import './friendsInput.css';
 
 class friendsInput extends Component {
   constructor() {
@@ -47,13 +48,14 @@ class friendsInput extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container well">
         <form onSubmit={this.handleSubmit}>
-          <input value={this.state.name} onChange={this.handleChangeName} name='firstName' type='text' placeholder='Enter your name...'></input>
-          <input value={this.state.age} onChange={this.handleChangeAge} name='age' type='text' placeholder='Enter your age'></input>
-          <input value={this.state.email} onChange={this.handleChangeEmail} name='email' type='text' placeholder='Enter your email'></input>
-          <input type='submit' value='submit'></input>
+          <input className='col-sm-3 col-xs-12' value={this.state.name} onChange={this.handleChangeName} name='firstName' type='text' placeholder={`Enter friend's name`}></input>
+          <input className='col-sm-3 col-xs-12' value={this.state.age} onChange={this.handleChangeAge} name='age' type='text' placeholder={`Enter friend's age`}></input>
+          <input className='col-sm-3 col-xs-12' value={this.state.email} onChange={this.handleChangeEmail} name='email' type='text' placeholder={`Enter friend's email`}></input>
+          <input  className='col-sm-2 col-xs-12 btn btn-success' type='submit' value='submit'></input>
         </form>
+        <hr />
       </div>
     )
   }
