@@ -19,8 +19,12 @@ export const postFriend = (friend) => {
 }
 
 export const deleteFriend = (friend) => {
+  friend = parseInt(friend,10);
+  // console.log(typeof friend)
   const url = 'http://localhost:5000/delete-friend';
-  const deleteReq = axios.delete(url, friend)
+  const deleteReq = axios.delete(url, {
+    params : {index: friend}
+  })
   return {
     type: 'GET_FRIENDS',
     payload: deleteReq,
